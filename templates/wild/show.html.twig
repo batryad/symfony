@@ -1,4 +1,21 @@
-<h1>{{ slug }}</h1>
-<a href="{{ path('wild_show', {'slug':'TITRE'}) }}">Afficher la page 1</a>
+{# templates/wild/show.html.twig #}
+{% extends 'base.html.twig' %}
+{% block title %}{{ slug }}{% endblock %}
 
-<p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolores ipsum itaque molestiae nisi obcaecati perspiciatis quidem rerum temporibus voluptas! Ab distinctio doloremque doloribus dolorum ipsam magnam mollitia, numquam repellendus.</span><span>è</span></p>
+{% block body %}
+
+    <div class="media">
+        <img class="align-self-start mr-3" src="{{program.poster}}" alt="{{ program.title }} poster">
+        <div class="media-body">
+            <h1 class="mt-0">{{ program.title }}</h1>
+            <p>{{ program.summary }}</p>
+            <p>Categorie : {{ program.category.name }}</p>
+        </div>
+    </div>
+
+
+    <a href="{{ path('wild_index') }}">
+        Retour à l'accueil
+    </a>
+
+{% endblock %}
