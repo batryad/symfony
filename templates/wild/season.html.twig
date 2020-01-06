@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+            {% for episode in episodes %}
+          <div class="cadrepisode">
+        <h1 class="episode"><span class="color-whrite">Episode {{ episode.number }} </span> {{ episode.title }} </h1>
+         <p>Synopsis {{ episode.synopsis }}</p>
+            {% endfor %}
+        <div class="col-3">
+            <a class="color-whrite" href="">Retour</a>
+        </div>
+          </div>
+{% endblock %}
