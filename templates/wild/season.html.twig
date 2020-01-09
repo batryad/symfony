@@ -1,12 +1,18 @@
 {% extends 'base.html.twig' %}
+{% block title %}{{ program.title }}{% endblock %}
+
 {% block body %}
-            {% for episode in episodes %}
-          <div class="cadrepisode">
-        <h1 class="episode"><span class="color-whrite">Episode {{ episode.number }} </span> {{ episode.title }} </h1>
-         <p>Synopsis {{ episode.synopsis }}</p>
-            {% endfor %}
-        <div class="col-3">
-            <a class="color-whrite" href="">Retour</a>
+    <div class="container" style="width: 80%; background-color: rgba(255,254,250,0.36)">
+        <h4>Saison {{ season.id }} de {{ program.getTitle }}</h4>
+        <hr>
+        <div>
+            <p>Liste des épisodes :</p>
+            <ul>
+                {% for episode in season.getEpisodes %}
+                    <a href="{{ path('wild_show_episode', {'id': episode.id}) }}"><h5>Episode {{ episode.number }} : {{ episode.title }}</h5></a>
+                    <p>{{ episode.synopsis }}</p>
+                {% endfor %}
+            </ul>
         </div>
-          </div>
+    </div>
 {% endblock %}

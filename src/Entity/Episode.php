@@ -32,7 +32,7 @@ class Episode
     private $synopsis;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\season", inversedBy="episodes")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Season", inversedBy="episodes")
      */
     private $season;
 
@@ -82,10 +82,14 @@ class Episode
         return $this->season;
     }
 
-    public function setSeason(?season $season): self
+    public function setSeason(season $season): self
     {
         $this->season = $season;
 
         return $this;
+    }
+
+    public function getProgram()
+    {
     }
 }

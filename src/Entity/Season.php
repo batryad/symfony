@@ -34,7 +34,7 @@ class Season
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\program", inversedBy="no")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Program", inversedBy="no")
      */
     private $program;
 
@@ -89,7 +89,7 @@ class Season
         return $this;
     }
 
-    public function getProgram(): ?program
+    public function getProgram(): ?Program
     {
         return $this->program;
     }
