@@ -34,7 +34,7 @@ class Season
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Program", inversedBy="no")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Program", inversedBy="seasons")
      */
     private $program;
 

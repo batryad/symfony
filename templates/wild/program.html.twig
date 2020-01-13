@@ -9,6 +9,14 @@
                 {% for saison in seasons %}
                     <li class="text-decoration-none list-unstyled text-center"><a class="color-yell" href="/wild/program/{{ slug }}/{{ saison.id }}">saison {{ saison.num }}</a></li>
                 {% endfor %}
+
+            </ul>
+            <ul>
+            {% for actor in program.actors %}
+                <li class="list-unstyled"><a class="color-whrite " href="/wild/actor/{{actor.id}}">{{ actor.name }}</a></li>
+            {% else %}
+                <li class="color-whrite">Aucun acteur pour cette série</li>
+            {% endfor %}
             </ul>
         </div>
     </div>

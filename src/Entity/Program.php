@@ -45,14 +45,15 @@ class Program
     private $seasons;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Season", mappedBy="program")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Actor", mappedBy="programs")
      */
-    private $no;
+    private $actors;
 
     public function __construct()
     {
+        $this->category = new ArrayCollection();
         $this->seasons = new ArrayCollection();
-        $this->no = new ArrayCollection();
+        $this->actors = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -96,7 +97,7 @@ class Program
         return $this;
     }
 
-    public function getCategory(): ?Category
+    public function getCategory(): ArrayCollection
     {
         return $this->category;
     }
@@ -140,33 +141,32 @@ class Program
     }
 
     /**
-     * @return Collection|Season[]
+     * @return Collection|Actor[]
      */
-    public function getNo(): Collection
+    public function getActors(): Collection
     {
-        return $this->no;
+        return $this->actors;
     }
 
-    public function addNo(Season $no): self
+    public function addActor(Actor $actor): self
     {
-        if (!$this->no->contains($no)) {
-            $this->no[] = $no;
-            $no->setProgram($this);
+        if (!$this->actors->contains($actor)) {
+            $this->actors[] = $actor;
+            $actor->addProgram($this);
         }
 
         return $this;
     }
 
-    public function removeNo(Season $no): self
+    public function removeActor(Actor $actor): self
     {
-        if ($this->no->contains($no)) {
-            $this->no->removeElement($no);
-            // set the owning side to null (unless already changed)
-            if ($no->getProgram() === $this) {
-                $no->setProgram(null);
-            }
+        if ($this->actors->contains($actor)) {
+            $this->actors->removeElement($actor);
+            $actor->removeProgram($this);
         }
 
         return $this;
     }
+
+
 }
