@@ -3,25 +3,25 @@
 {% block title %}Program index{% endblock %}
 
 {% block body %}
-    <h1>Program index</h1>
+    <h1 class="color-yell">Program index</h1>
 
-    <table class="table">
+    <table class="table color-whrite">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Summary</th>
-                <th>Poster</th>
-                <th>actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th class="color-yell">Title</th>
+            <th>Summary</th>
+            <th class="color-yell">Poster</th>
+            <th>actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for program in programs %}
             <tr>
                 <td>{{ program.id }}</td>
-                <td>{{ program.title }}</td>
+                <td class="color-yell">{{ program.title }}</td>
                 <td>{{ program.summary }}</td>
-                <td>{{ program.poster }}</td>
+                <td class="color-yell"><img src="{{ asset("program.poster") }}" alt="img"></td>
                 <td>
                     <a href="{{ path('program_show', {'id': program.id}) }}">show</a>
                     <a href="{{ path('program_edit', {'id': program.id}) }}">edit</a>

@@ -43,6 +43,11 @@ class Category
      */
     private $programs;
 
+    public function __construct()
+    {
+        $this->programs = new ArrayCollection();
+    }
+
     /**
      * @return Collection|Program[]
      */

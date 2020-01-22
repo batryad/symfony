@@ -1,28 +1,29 @@
+
 {% extends 'base.html.twig' %}
 
 {% block title %}Program{% endblock %}
 
 {% block body %}
-    <h1>Program</h1>
+    <h1 class="color-yell">Program</h1>
 
     <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ program.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ program.title }}</td>
-            </tr>
-            <tr>
-                <th>Summary</th>
-                <td>{{ program.summary }}</td>
-            </tr>
-            <tr>
-                <th>Poster</th>
-                <td>{{ program.poster }}</td>
-            </tr>
+        <tbody class="color-whrite">
+        <tr>
+            <th>Id</th>
+            <td>{{ program.id }}</td>
+        </tr>
+        <tr>
+            <th>Title</th>
+            <td>{{ program.title }}</td>
+        </tr>
+        <tr>
+            <th>Summary</th>
+            <td>{{ program.summary }}</td>
+        </tr>
+        <tr>
+            <th>Poster</th>
+            <td>{{ program.poster }}</td>
+        </tr>
         </tbody>
     </table>
 

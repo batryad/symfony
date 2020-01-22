@@ -35,7 +35,6 @@ class Program
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="programs")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $category;
 
@@ -49,9 +48,9 @@ class Program
      */
     private $actors;
 
+
     public function __construct()
     {
-        $this->category = new ArrayCollection();
         $this->seasons = new ArrayCollection();
         $this->actors = new ArrayCollection();
     }
@@ -97,15 +96,21 @@ class Program
         return $this;
     }
 
-    public function getCategory(): ArrayCollection
+    /**
+     * @return mixed
+     */
+    public function getCategory()
     {
         return $this->category;
     }
 
-    public function setCategory(?Category $category): self
+    /**
+     * @param mixed $category
+     * @return Program
+     */
+    public function setCategory($category)
     {
         $this->category = $category;
-
         return $this;
     }
 
@@ -147,7 +152,10 @@ class Program
     {
         return $this->actors;
     }
-
+    public function setActors($actors): Collection
+    {
+        return $this->actors = $actors;
+    }
     public function addActor(Actor $actor): self
     {
         if (!$this->actors->contains($actor)) {

@@ -17,8 +17,6 @@ class ProgramController extends AbstractController
 {
     /**
      * @Route("/", name="program_index", methods={"GET"})
-     * @param ProgramRepository $programRepository
-     * @return Response
      */
     public function index(ProgramRepository $programRepository): Response
     {
@@ -29,8 +27,6 @@ class ProgramController extends AbstractController
 
     /**
      * @Route("/new", name="program_new", methods={"GET","POST"})
-     * @param Request $request
-     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -54,8 +50,6 @@ class ProgramController extends AbstractController
 
     /**
      * @Route("/{id}", name="program_show", methods={"GET"})
-     * @param Program $program
-     * @return Response
      */
     public function show(Program $program): Response
     {
@@ -66,9 +60,6 @@ class ProgramController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="program_edit", methods={"GET","POST"})
-     * @param Request $request
-     * @param Program $program
-     * @return Response
      */
     public function edit(Request $request, Program $program): Response
     {
@@ -89,9 +80,6 @@ class ProgramController extends AbstractController
 
     /**
      * @Route("/{id}", name="program_delete", methods={"DELETE"})
-     * @param Request $request
-     * @param Program $program
-     * @return Response
      */
     public function delete(Request $request, Program $program): Response
     {
